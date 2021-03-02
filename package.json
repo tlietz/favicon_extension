@@ -1,0 +1,15 @@
+{
+  "name": "favicon_extension",
+  "version": "1.0.0",
+  "description": "favicon chrome extension",
+  "main": "content.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "prettier": "2.2.1"
+  }
+}
