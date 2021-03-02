@@ -3,11 +3,10 @@
     "name": "Favicons For Google Search",
     "version": "0.1",
     "description": "Puts favicon (according to Google s2 library) on any links in Google search.",
-    "permissions": ["*://google.com/*"],
-    "host_permissions": ["*://google.com/*"],
+    "host_permissions": ["*://*.google.com/*"],
     "content_scripts": [
         {
-            "matches": ["*://google.com/*"],
+            "matches": ["*://*.google.com/*"],
             "js": ["content.js"],
             "css": ["content.css"],
             "run_at": "document_end"

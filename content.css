@@ -1,4 +1,6 @@
 .favicon {
     height: 16px;
     width: 16px;
+    vertical-align: middle;
+    padding: 0 .5em .2em 0;
 }

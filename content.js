@@ -12,8 +12,6 @@ if (baseUrl == "https://www.google.com") {
         // link.style.background = "green";
         domain = link.innerText.split(" ")[0];
         favicon = getFavicon(domain);
-        favicon.style.padding = "0 .5em 0 0";
-        favicon.style.verticalAlign = "middle";
         link.before(favicon);
     }
 }
