@@ -1,30 +1,33 @@
-const baseUrl = document.location.origin;
 let favicon = "";
 let domain = "";
-let mode = "default"; //mode can either be 'default' or 'large'
+let link = "";
+let mode = ""; //mode can either be 'default' or 'large'
 
-if (baseUrl == "https://www.google.com") {
-    const externalLinks = document.body.querySelectorAll("cite");
-
-    // Insert favicons
-    if (mode === "default") {
-        for (link of externalLinks) {
-            domain = link.innerText.split(" ")[0];
-            favicon = getFavicon(domain, 16);
-            favicon.classList.add("favicon-16");
-            link.before(favicon);
-        }
-    } else {
-        for (link of externalLinks) {
-            domain = link.innerText.split(" ")[0];
-            favicon = getFavicon(domain, 32);
-            favicon.classList.add("favicon-32");
-            link.before(favicon);
-        }
+const externalLinks = document.body.querySelectorAll("div.TbwUpd cite.iUh30");
+// Insert favicons
+if (mode === "default") {
+    for (i = 0; i < externalLinks.length; i += 2) {
+        link = externalLinks[i];
+        domain = link.innerText.split(" ")[0];
+        favicon = getFavicon(domain, 16);
+        favicon.classList.add("favicon-16");
+        link.before(favicon);
+    }
+} else {
+    const container = document.body.querySelector("#rcnt");
+    for (i = 0; i < externalLinks.length; i += 2) {
+        link = externalLinks[i];
+        domain = link.innerText.split(" ")[0];
+        linkPosition = link.getBoundingClientRect().top;
+        favicon = getFavicon(domain, 32);
+        favicon.classList.add("favicon-32");
+        // offset of 170 for getbounding client rect since it measures the entire page
+        favicon.style.top = linkPosition - 147 + "px";
+        container.appendChild(favicon);
     }
 }
 
-// Returns the favicon of domain as an image,
+// Returns the favicon of domain as a square image with the desired size in pixels,
 // returns default globe favicon provided by Google if none are found.
 // Where domain is of the form www.website.com or website.com
 function getFavicon(domain, faviconSize) {
