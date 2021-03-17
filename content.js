@@ -14,20 +14,18 @@ if (mode === "default") {
         link.before(favicon);
     }
 } else {
-    const container = document.body.querySelector("#rcnt");
     for (i = 0; i < externalLinks.length; i += 2) {
         link = externalLinks[i];
         domain = link.innerText.split(" ")[0];
         linkPosition = link.getBoundingClientRect().top;
+        // Test
         favicon = getFavicon(domain, 32);
         favicon.classList.add("favicon-32");
-        // offset of 170 for getbounding client rect since it measures the entire page
-        favicon.style.top = linkPosition - 147 + "px";
-        container.appendChild(favicon);
+        // offset for getbounding client rect since it measures the entire page
+        link.before(favicon);
     }
 }
 
-// Returns the favicon of domain as a square image with the desired size in pixels,
 // returns default globe favicon provided by Google if none are found.
 // Where domain is of the form www.website.com or website.com
 function getFavicon(domain, faviconSize) {
