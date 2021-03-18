@@ -1,9 +1,19 @@
 {
     "manifest_version": 3,
     "name": "Favicons For Google Search",
-    "version": "0.1",
+    "version": "0.2",
     "description": "Puts favicon (according to Google s2 library) on any links in Google search.",
+    "permissions": ["storage"],
     "host_permissions": ["*://*.google.com/*"],
+    "action": {
+        "matches": ["*://*.google.com/*"],
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        }
+    },
     "content_scripts": [
         {
             "matches": ["*://*.google.com/*"],
