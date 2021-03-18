@@ -1,14 +1,12 @@
-let favicon = "";
-let domain = "";
-let link = "";
-var mode = "";
-
 chrome.storage.sync.get(["mode"], function (obj) {
     const mode = obj.mode;
     insertFavicons(mode);
 });
 
 function insertFavicons(mode) {
+    let favicon = "";
+    let domain = "";
+    let link = "";
     const externalLinks = document.body.querySelectorAll(
         "div.TbwUpd cite.iUh30"
     );
