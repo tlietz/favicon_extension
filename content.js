@@ -1,21 +1,29 @@
 let favicon = "";
 let domain = "";
 let link = "";
-let mode = "large"; //mode can either be 'small' or 'large'
+var mode = "";
 
-const externalLinks = document.body.querySelectorAll("div.TbwUpd cite.iUh30");
-// Insert favicons
-for (i = 0; i < externalLinks.length; i += 2) {
-    link = externalLinks[i];
-    domain = link.innerText.split(" ")[0];
-    if (mode === "large") {
-        favicon = getFavicon(domain, 32);
-        favicon.classList.add("favicon-32");
-    } else {
-        favicon = getFavicon(domain, 16);
-        favicon.classList.add("favicon-16");
+chrome.storage.sync.get(["mode"], function (obj) {
+    const mode = obj.mode;
+    insertFavicons(mode);
+});
+
+function insertFavicons(mode) {
+    const externalLinks = document.body.querySelectorAll(
+        "div.TbwUpd cite.iUh30"
+    );
+    for (i = 0; i < externalLinks.length; i += 2) {
+        link = externalLinks[i];
+        domain = link.innerText.split(" ")[0];
+        if (mode == "large") {
+            favicon = getFavicon(domain, 32);
+            favicon.classList.add("favicon-32");
+        } else {
+            favicon = getFavicon(domain, 16);
+            favicon.classList.add("favicon-16");
+        }
+        link.before(favicon);
     }
-    link.before(favicon);
 }
 
 // returns default globe favicon provided by Google if none are found.
