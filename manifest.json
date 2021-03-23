@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Favicons For Google Search",
     "version": "0.2",
-    "description": "Puts favicons (according to Google s2 library) on any links in Google search.",
+    "description": "Puts favicons (according to Google s2 library) on Google search results.",
     "permissions": ["storage"],
     "host_permissions": ["*://*.google.com/*"],
     "action": {
