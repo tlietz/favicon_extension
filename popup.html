@@ -8,20 +8,25 @@
         <title>Chrome Extension</title>
     </head>
     <body>
-        <p>Favicon Format</p>
-        <div>
+        <div class="size-selector" id="top">
             <input
                 type="radio"
                 id="large"
+                class="size-selector"
                 name="favicon"
                 value="large"
-                checked="checked"
             />
-            <label for="large">Large</label>
+            <label for="large"><img src="icon48.png" alt="" /></label>
         </div>
-        <div>
-            <input type="radio" id="small" name="favicon" value="small" />
-            <label for="small">Small</label>
+        <div class="size-selector" id="bottom">
+            <input
+                type="radio"
+                id="small"
+                class="size-selector"
+                name="favicon"
+                value="small"
+            />
+            <label for="small"><img src="icon16.png" alt="" /></label>
         </div>
 
         <script src="popup.js"></script>
